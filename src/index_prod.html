@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UEM</title>
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="/static/<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <script>
+		window.config = {
+			context: "",
+		}
+    </script>
+</head>
+
+<body>
+<div id="root"></div>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+<script src="/static/<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
+</body>
+
+</html>

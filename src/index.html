@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>面晶</title>
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <script>
+        // window.location.pathname !== '/static/' && (window.location.href = '/static/');
+        window.config = {
+            context: "https://garnet.migu.cn:16406",
+        }
+        // var _mgds = _mgds || [];
+        // (function(){
+        //     var etm = 1 * Date.now();
+        //     _mgds.push(['_enterTime', etm]);
+        //     _mgds.push(['_accountId', '0c710791256a26837cd795c6970bac02']);
+        //     (function() {
+        //         var vds = document.createElement('script');
+        //         vds.type='text/javascript';
+        //         vds.async = true;
+        //         vds.src = 'https://uem.migu.cn:18088/uemjs/amber-web-sdk-min.js';
+        //         var s = document.getElementsByTagName('script')[0];
+        //         s.parentNode.insertBefore(vds, s);
+        //     })();
+        // })();
+    </script>
+</head>
+
+<body>
+<div id="root"></div>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
+</body>
+</html>
