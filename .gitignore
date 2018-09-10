@@ -1,0 +1,14 @@
+*/.settings/*
+.settings/*
+.settings
+.classpath
+.project
+*/target/*
+target/*
+*/*.iml
+*.iml
+/target/
+node_modules
+.idea
+.vscode
+dist/
