@@ -1,42 +1,21 @@
-import {SHOW_PAGE_LOADING, HIDE_PAGE_LOADING, LOGIN, LOGINS,LOGINNEW,LOGINOUT,BANNER,ISLOGIN, SET_APP_TYPE,SET_APP_TYPES, SET_CALIBERID,SET_APP_VERSION,SET_APP_KEY, SET_DATE, SET_APPID, SET_SONCOMID} from "../constants/actions";
-import * as C from "../constants/api";
-import Api, {createAction} from "../utils/api";
+import * as AC from '../constants/actions'
+import * as C from '../constants/api'
+import Api, { createAction } from '../utils/api'
 
 export default {
-    
-    showPageLoading: createAction(SHOW_PAGE_LOADING),
-    
-    hidePageLoading: createAction(HIDE_PAGE_LOADING),
+    showPageLoading: createAction(AC.SHOW_PAGE_LOADING),
 
-    login: createAction(LOGIN, Api.login),
-    //新增加的
-    logins: createAction(LOGINS, Api.logins),
-    //09
-    loginnew: createAction(LOGINNEW, Api.loginnew),
-    loginOut: createAction(LOGINOUT, Api.loginOut),
+    hidePageLoading: createAction(AC.HIDE_PAGE_LOADING),
 
+    changeCurrentUser: createAction(AC.CHANGE_CURRENT_USER, user => Promise.resolve(user)),
 
-    banner: createAction(BANNER, Api.banner),
-    //10月新增banner
-    isLogin: createAction(ISLOGIN, Api.isLogin),
+    // 获取web圈选默认页面url
+    getWebUrl: createAction(C.GET_WEB_URL, Api.getWebUrl),
 
+    migrateAppList: createAction(AC.APP_LIST_MIGRATION, apps => Promise.resolve(apps)),
 
-    setAppType: createAction(SET_APP_TYPE),
-    setAppTypes: createAction(SET_APP_TYPES),
+    // 从本地缓存里面获取app列表
+    loadMigratedAppList: createAction(AC.MIGRATED_APP_LIST_LOADED),
 
-    setAppId: createAction(SET_APPID),
-
-    setCaliberId: createAction(SET_CALIBERID),
-
-    setAppVersion: createAction(SET_APP_VERSION),
-
-    setAppKey: createAction(SET_APP_KEY),
-
-    setSonComId:createAction(SET_SONCOMID),
-
-    setDate: createAction(SET_DATE),
+    changeAppId: createAction(AC.APP_ID_CHANGED, params => Promise.resolve(params))
 }
-
-
-
-

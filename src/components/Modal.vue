@@ -1,92 +1,87 @@
 <template>
-    <el-dialog v-model="isShown" class='bi-dialog' top='60px' @close='close'>
-        <div class='header'>
-            <slot name='header'></slot>
-        </div>
-        <div class='body'>
-            <slot></slot>
-        </div>
-
+    <el-dialog
+        v-bind="$attrs"
+        :close-on-press-escape="false"
+        :close-on-click-modal="closeOnClickModal"
+        :visible.sync="dialogVisible"
+        :title="title"
+        class="modal"
+        @close="onClose">
+        <slot>暂无数据</slot>
+        <span v-if="footerVisible" slot="footer" class="dialog-footer">
+            <slot name="footer">
+                <el-button @click="dialogVisible=false">{{ cancelText }}</el-button>
+                <el-button type="primary" @click="onSave">{{ okText }}</el-button>
+            </slot>
+        </span>
     </el-dialog>
 </template>
-
 <script>
-    export default{
-        name: 'Dialog',
-
-        data(){
-            return {
-                isShown: false
-            }
+export default {
+    name: 'Modal',
+    props: {
+        value: {
+            type: Boolean,
+            default: false
         },
 
-        methods:{
-            close(){
-                this.$emit('onClosed');
-            }
+        title: {
+            type: String,
+            default: ''
         },
 
-        watch:{
-            visible(val){
-                this.isShown = val;
-            }
+        footerVisible: {
+            type: Boolean,
+            default: true
+        },
+        cancelText: {
+            type: String,
+            default: '取消'
+        },
+        okText: {
+            type: String,
+            default: '确定'
         },
 
-        props:{
-            visible: Boolean,
-            onClosed: Function
+        closeOnClickModal: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data() {
+        return {
+            dialogVisible: false
+        }
+    },
+
+    watch: {
+        value(newVal) {
+            this.dialogVisible = newVal
+        },
+        dialogVisible(newVal) {
+            if (!newVal) {
+                this.$emit('input', false)
+                this.$emit('close')
+            }
+        }
+    },
+
+    methods: {
+        onClose() {
+            this.$emit('close')
+        },
+
+        onSave() {
+            this.$emit('save')
         }
     }
+}
 </script>
 
-
-<style lang="less">
-    .bi-dialog {
-
-
-        .el-dialog__header {
-            border-bottom: none;
-        }
-
-        .el-dialog__body{
-            padding-bottom:0;
-            padding-top:0;
-        }
-
-        .header{
-            height: 90px;
-            text-align: center;
-            font-size: 20px;
-            font-size:24px;
-        }
-
-        .body{
-            min-height: 275px;
-            margin: 10px -20px 0 -20px;;
-            padding: 30px 40px;
-            background-color: #F4F8FC;
-            border-top:1px solid #e0e7f0;
-
-            .tip{
-                p{
-                    position: relative;
-                    padding-left:10px;
-                    color:#95a1b2;
-                    &::before{
-                        content: '';
-                        width: 4px;
-                        height: 4px;
-                        top: 7px;
-                        left: 0px;
-                        border-radius: 2px;
-                        background: #95a1b2;
-                        position: absolute;
-                    }
-                }
-            }
-        }
+<style lang="scss">
+.modal {
+    .el-dialog__body{
+        padding-top: 0;
     }
-
+}
 </style>
-
-

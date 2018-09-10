@@ -1,27 +1,26 @@
 <template>
-    <div class="page-loading-wrapper" v-if='showing'>
+    <div v-if="showing" class="page-loading-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
             <div class="bounce3"></div>
         </div>
     </div>
-</template> 
+</template>
 
 <script>
-    export default {
-        name: "LoadingIndicator",
-        props: {
-            showing: {
-                type: Boolean,
-                default: false
-            }
+export default {
+    name: 'LoadingIndicator',
+    props: {
+        showing: {
+            type: Boolean,
+            default: false
         }
     }
+}
 </script>
 
-
-<style lang='less'>
+<style lang="scss">
     .page-loading-wrapper {
         bottom: 0;
         color: #999;

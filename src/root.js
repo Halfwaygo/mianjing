@@ -1,19 +1,22 @@
-import Vue from "vue";
-import store from "./store";
-import router from "./router/index";
-import {sync} from "vuex-router-sync";
-import App from './App';
-//import a from './num.js'
-// console.log(a)
-sync(store, router);
-import {eventBus,num} from './eventBus.js'
+import Vue from 'vue'
+import store from './store'
+import router from './router'
+import {sync} from 'vuex-router-sync'
+import App from './App'
+import ES6Promise from 'es6-promise'
+import echarts from 'echarts'
+import alerts from './constants/message'
+
+Vue.prototype.$echarts = echarts
+Vue.prototype.$alerts = alerts
+ES6Promise.polyfill()
+
+sync(store, router)
+
+/* eslint-disable */
 new Vue({
-    el:'#root',
+    el: '#root',
     store,
     router,
     render: h => h(App)
-    /*render:function(h){
-    	return h(App)
-    }	*/
-});
-
+})

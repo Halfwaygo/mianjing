@@ -1,0 +1,161 @@
+@import '../index.scss';
+.rightBtn{
+    text-align: right;
+}
+.writeBack{
+    background: #ffffff;
+    margin-top: 16px;
+    .chartHeadTitle{
+        height: 75px;
+        padding: 20px 20px 0 ;
+        .time{
+            font-size: 12px;
+            color: #8b99a7;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+        .behavior{
+            font-size: 12px;
+            color: rgba(72,89,111,0.7);
+            margin-top: 10px;
+            .box{
+                margin-right: 35px;
+                .graySpan{
+                    background: rgba(236,236,236,0.6);
+                    padding: 1px 3px;
+                    display: inline-block;
+                    border-radius: 2px;
+                }
+            }
+        }
+        .behavior.nonMagin{
+            margin-top: 0;
+        }
+    }
+    .title{
+        color: #5A6D82;
+        font-size: 14px;
+    }
+    .chartBox{
+        width: 100%;
+    }
+    .chartBox.smallChart{
+        height: 250px;
+    }
+    .topChart{
+        height: 325px;
+    }
+    .chartBox.activeUserChart{
+        height: 295px;
+    }
+    .filterText{
+        padding: 15px 20px 0 ;
+        color: #5A6D82;
+    }
+}
+.chartDetail{
+    padding: 18px 20px 28px;
+    .title{
+        margin-bottom: 20px;
+    }
+}
+.headeChioceBox{
+    position: relative;
+    height: 32px;
+    .dataBox{
+        display: inline-block;
+    }
+}
+.headDiv{
+    .el-radio-button__inner{
+        color: #20A0FF;
+    }
+    .el-button--default span{
+        color: #20A0FF;
+    }
+    .rightBtn{
+        position: relative;
+        top: -4px;
+
+    }
+}
+.appVersionPieBox{
+    margin-top: 14px;
+    width: 547px;
+    background: #F9FAFC;
+    box-shadow: 0 0 3px #dcdcdc;
+    .chartHeadTitle{
+        height: 50px;
+        padding: 15px 20px 0 ;
+        .title{
+            color: #5A6D82;
+            font-size: 14px;
+        }
+    }
+    .chartBox{
+        padding: 0 25px;
+        height: 310px;
+    }
+}
+body .el-button.btn-icon{
+    padding: 5px 25px;
+    position: relative;
+    top: 3px;
+    margin-left: 8px;
+    background-color: #F9FAFB;
+    span{
+        display: inline-block;
+    }
+}
+.icon-choose{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url("../../layouts/images/icon/icon-choose.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.chart-container{
+    padding-top: 14px;
+}
+.choiceDay{
+    position: relative;
+    top: -2px;
+    margin-left: 8px;
+}
+.compare{
+    padding: 0 5px;
+    font-size: 12px;
+    color: #8b99a7;
+    .bigNum{
+        font-family: sfuidisplay-thin;
+        padding:1px 5px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #8b99a7;
+    }
+    .preNum.up{
+        color: #74BB5C;
+    }
+    .preNum.down{
+        color: #F66254;
+    }
+}
+.compare.margin{
+    margin-top: -5px;
+}
+.icon-up-green{
+    display: inline-block;
+    width: 17px;
+    height: 22px;
+    background: url("../../layouts/images/icon/icon-up-green.png") no-repeat center;
+    background-size: contain;
+}
+.icon-down-red{
+    display: inline-block;
+    width: 17px;
+    height: 22px;
+    background: url("../../layouts/images/icon/icon-down-red.png") no-repeat center;
+    background-size: contain;
+}

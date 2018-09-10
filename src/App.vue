@@ -1,53 +1,54 @@
 <template>
-    <!-- <div class='page-wrapper' :class="{mac:isMac, win: isWin}"> -->
-    <div class='page-wrapper'>
-        <loading-indicator :showing='pageLoading'></loading-indicator>
+    <div class="page-wrapper">
+        <loading-indicator :showing="pageLoading"></loading-indicator>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import Vue from 'vue';
-    import Element from 'element-ui';
-    import {mapState, mapActions} from 'vuex';
-    import LoadingIndicator from './components/LoadingIndicator';
+import Vue from 'vue'
+import {mapState, mapActions} from 'vuex'
+import LoadingIndicator from './components/LoadingIndicator'
+import Element from 'element-ui'
+Vue.use(Element)
 
-    import utils from './utils/misc';
+export default {
 
-    //import {delCookie,getCookie,setCookie} from './utils/util';
-    Vue.use(Element);
+    name: 'App',
 
-    export default {
+    components: {
+        LoadingIndicator
+    },
 
-        name: 'Root',
+    computed: mapState({
+        pageLoading: ({root}) => root.pageLoading
+    }),
 
-        data(){
-            return {
+    beforeMount() {
+        this.loadMigratedAppList()
+    },
+
+    mounted() {
+        window.onpopstate = () => {
+            if (this.$route.meta.notAllowBack) {
+                //    这个allowBack 是存在vuex里面的变量
+                history.go(1)
             }
-        },
-
-        beforeMount(){
-        },
-
-        components: {
-            LoadingIndicator
-        },
-
-        computed: mapState({
-            pageLoading: ({root}) => root.pageLoading
-        }),
-
-        methods: {
-            ...mapActions(["showPageLoading", "hidePageLoading"]),
-        },
-    };
-
+        }
+    },
+    methods: {
+        ...mapActions(['loadMigratedAppList'])
+    }
+}
 </script>
 
-
-<style lang="less">
-    @import "./layouts/css/index";
-    @import "../node_modules/element-ui/lib/theme-default/index.css";
+<style lang="scss">
+@import "../node_modules/font-awesome/css/font-awesome.css";
+@import "../node_modules/element-ui/lib/theme-chalk/index.css";
+@import "./layouts/css/index.scss";
+@import "./layouts/css/imagefont.css";
+.page-wrapper {
+    width: 100%;
+    height: 100%;
+}
 </style>
-
-

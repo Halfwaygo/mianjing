@@ -1,25 +1,22 @@
 <!doctype html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>UEM</title>
-    <% for (var css in htmlWebpackPlugin.files.css) { %>
-    <link href="/static/<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-    <% } %>
-
-    <script>
-		window.config = {
-			context: "",
-		}
-    </script>
+  <meta charset="utf-8">
+    <link rel="shortcut icon" href="./static/images/favicon.ico">
+  <title>Amber运营分析平台</title>
 </head>
-
 <body>
-<div id="root"></div>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<script src="/static/<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
-</body>
+<script>
+    window.config = {
+        // <%=htmlWebpackPlugin.options.env %>API
+        context: "<%=htmlWebpackPlugin.options.address %>",
+        version: "<%=htmlWebpackPlugin.options.version %>",
+        interaction: "<%=htmlWebpackPlugin.options.interaction %>",
+    }
+</script>
 
+
+<div id="root"></div>
+<%=htmlWebpackPlugin.files.webpackManifest%>
+</body>
 </html>

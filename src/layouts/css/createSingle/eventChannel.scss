@@ -1,0 +1,90 @@
+.chartMainBox{
+    min-width: 1000px;
+    .el-main {
+        padding: 14px 0 14px 10px;
+    }
+    .chartMain{
+        padding-top: 16px;
+        width: 100%;
+    }
+}
+.chartBodyBox{
+    background: #ffffff;
+    min-height: 550px;
+    padding: 20px 30px;
+    .chartHead{
+        .timeBolck{
+            display: inline-block;
+        }
+        .selectBlock{
+            width: 89px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .chartTypeIco{
+            margin-left: 10px;
+            padding: 7px 10px;
+        }
+        .chartTypeIco.active{
+            color: #3392FF;
+            border: 1px solid #3392FF;
+        }
+    }
+}
+.chartBox{
+    width: 100%;
+    height: 350px;
+}
+.chartBox.tableBox{
+    padding: 42px 20px 0;
+}
+.titleDiv{
+    margin-left: 30px;
+    color: #6D7684;
+    font-size: 12px;
+}
+.singleDimension{
+    margin: 0 50px 0 30px;
+    .selected{
+        display: block;
+    }
+}
+.userBox{
+    width: 460px;
+}
+.chooseColor{
+    margin-left: 30px;
+    .colorSpan{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 16px;
+        position: relative;
+        text-align: center;
+        line-height: 16px;
+        border-radius: 2px;
+        input[type="radio"]{
+            position: absolute;
+            opacity: 0;
+            z-index: 2;
+        }
+        i{
+            opacity: 0;
+            font-size: 12px;
+        }
+    }
+    .colorSpan.color1{ background-color:#3392FF }
+    .colorSpan.color2{ background-color: #7262BA}
+    .colorSpan.color3{ background-color: #D587E3}
+    .colorSpan.color4{ background-color: #F35974}
+    .colorSpan.color5{ background-color: #F5D41D}
+    .colorSpan.active{
+        i{
+            opacity: 1;
+            color: #ffffff;
+        }
+    }
+}
+.textRight{
+    text-align: right;
+}

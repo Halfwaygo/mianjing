@@ -1,156 +1,272 @@
-// export const CODE_SUCCESS = 200;
-// export const CODE_FAIL = 400;
-// export const STATUS_UNLOGIN = 4000;
 
-export const CODE_SUCCESS = 0;
-export const CODE_STATUS_OK = 200;
-export const CODE_STATUS_FAIL = 400;
-export const CODE_SESSION_TIME_OUT = 600;
+// export const HOST_BASE = `${location.protocol}//${location.host}`
+export const HOST_BASE = window.config.context === '/api' ? `${location.protocol}//${location.hostname}:8080` : ''
+// const getApi = url => `${window.config.context}/${url}`
+const getApi = url => `${HOST_BASE}${window.config.context}/amber/${url}`
 
-export const COOKIE_WELCOME_FLAG = "welcome_flag";
-export const COOKIE_SESSION_ID = "sessionId";
+// 针对本地调试用
+const getLocApi = url => `${HOST_BASE}/loc/amber/${url}`
 
-//export const baseUrl = 'http://39.156.1.5:18000';
+export const CODE_STATUS_OK = 200
+export const CODE_SESSION_TIME_OUT = 4000
 
-//window.config.context = 'http://39.156.1.5:18000';
+// 获取登录验证码
+export const CODE_IMG = getApi('codeImgSSO.api')
+// 获取api路径
+export const BASE_PATH = getApi('')
+// 用户登入
+export const USER_LOGIN = getApi('login.api')
+export const USER_LOGIN_LOG = getApi('logout.api')
 
-//window.config.context = 'http://10.124.2.27:18080';   //测试版(11-17)
-//window.config.context = 'http://10.124.2.27:18079';
-//window.config.context = 'https://uemweb.migu.cn:18000'; //域名版
+export const PAGE_CATEGORY_QUERY = getApi('page/page-category')
 
-// window.config.context = 'https://garnet.migu.cn:16406';
+/** ***********实时************* */
+// 看板图标列表
+export const REALTIME_CHART_LIST = getApi('board/realTime/chartList.api')
+// 实时-获取指标--------(已通)
+export const REALTIME_INDEX_LIST = getApi('board/realTime/indexList.api')
+// 实时-添加单图--------(已通)
+export const REALTIME_ADD_CHART = getApi('board/realTime/addChart.api')
+// 实时-删除单图--------(展示单图未通无法测试)
+export const REALTIME_DEL_CHART = getApi('board/realTime/deleteChart.api')
+// 实时-非预置数据
+export const REALTIME_SHOW_NOTYZ_CHART = getApi('board/realTime/chartIndexShow.api')
+// 实时-预置数据
+export const REALTIME_SHOW_YESYZ_CHART = getApi('board/realTime/showIndex.api')
 
+/** ***********概览************* */
 
-const getApiJson = (url) => `${window.config.context}/${url}`;
-const getApiHtml = (url) => `${window.config.context}/${url}.html`;
+// 累计
+export const SUMMARY_DRAND_TOTAL = getApi('board/overview/getAccumulatedUserNum.api')
+// 四个方格数据（活跃用户、新增用户、人均启动次数、人均使用时长）
+export const SUMMARY_FOUR_ICS = getApi('board/overview/getHeadFourCellData.api')
+// 活跃用户数
+export const SUMMARY_LIVE_USER = getApi('board/overview/getActiveUserNum.api')
+// 新增用户数
+export const SUMMARY_ADD_USER = getApi('board/overview/getIncreasedUserNum.api')
+// 启动次数
+export const SUMMARY_STARTUP_NUM = getApi('board/overview/getOpenNum.api')
+// 人均启动次数
+export const SUMMARY_PERSON_STARTUP_NUM = getApi('board/overview/getOpenNumPerUser.api')
+// 人均使用时长
+export const SUMMARY_PERSON_USE_TIME = getApi('board/overview/getUsingTimePerUser.api')
+// 次均使用时长
+export const SUMMARY_ONCE_USE_TIME = getApi('board/overview/getUsingTimeEveyTime.api')
+// 账号用户占比
+export const SUMMARY_ACCOUNT_RATIO = getApi('board/overview/getAccountRatio.api')
+// 用户登录方式
+export const SUMMARY_LOGIN_WAY = getApi('board/overview/getLoginChannelDiagram.api')
+// APP TOP5版本分布
+export const SUMMARY_APP_TOP = getApi('board/overview/getTop5AppVersion.api')
 
+// 静态数据--------(未通)
+export const SUMMARY_INDEX_ICS = getApi('board/index.api')
+// summary-时段统计--------(未通)
+export const SUMMARY_HOUR_ICS = getApi('board/hour.api')
+// 修改看板名称 （自定义看板的名称修改，产品未设计次功能）
+export const SUMMARY_DASHBOAR_NAME_CHANGED = getApi('board/modifyBoardName.api')
+/** ***********单图************* */
+//  获取圈选指标和自定义事件--------(单图列表未通则无法测试)
+export const FUNNEL_INDEX_LIST = getApi('funnel/indexList.api')
+// 漏斗单图列表--------(未通)
+export const FUNNEL_SINGLE_LIST = getApi('funnel/singleMapList.api')
+// 创建漏斗分析--------(正在测试)
+export const CREATE_FUNEL_SINGGLE_MAP = getApi('funnel/addSingleMap.api')
 
-//05-02
-export const LOGINNEW = getApiJson('exam/admin/loginCheck.do');  //登录
-export const LOGINOUT = getApiJson('login/logout.do');   //退出
+/** ***********看板************* */
+// 1.1 获取首页展示所有看板（已通，只有自定义看板数据）
+export const GET_ALL_BOARD = getApi('board/IndexAll.api')
+/** ***********自定义看板*************** */
+// 获取单个看板（已通，有数据）
+export const GET_SINGLE_BOARD = getApi('board/single.api')
+// 新建看板（已通，有数据）
+export const ADD_DASHBOARD = getApi('board/addDashboard.api')
+// 删除看板（已通，有数据）
+export const DEL_DASHBOARD = getApi('board/deleteDashboard.api')
+// 单图列表（已通，无数据）
+export const GET_GINGLE_MAP_LIST = getApi('board/singleMapList.api')
+// 添加看板的单图（已通，有数据）
+export const ADD_SINGLE_MAP = getApi('board/addsingleMaps.api')
+// 删除看板单图 （已通，有数据）
+export const DEL_SINGLE_MAP = getApi('board/deleteSingleMap.api')
+// 获取所有看板 （未调 和1.1获取首页展示所有看板 有何区别？）
+export const GET_ALL_BOARD_SEARCH = getApi('board/all.api')
+//  《单图模块》
+// 单图模块-事件分析接口 (已通，有数据)
+export const GRAPH_GET_EVENT_MAP_LIST = getApi('eventSingleMap/singleMapList.api')
+// 事件分析接口-获取事件单图指标
+export const GRAPH_GET_EVENT_MAP_INDEX = getApi('eventSingleMap/singleMapIndex.api')
+// 事件分析接口-事件分析表格查询
+export const GRAPH_GET_EVENT_TABLE_MAP_INDEX = getApi('eventSingleMap/singleMapIndexTable.api')
+// 事件分析接口-创建事件单图
+export const GRAPH_CREATE_EVENT_MAP = getApi('eventSingleMap/addSingleMapIndex.api')
+// 事件分析接口-获取圈选指标、预定义指标及复合指标 （已通，有数据）
+export const GRAPH_GET_EVENT_ALL_INDEX_LIST = getApi('eventSingleMap/indexList.api')
+// 事件分析接口-修改事件单图
+export const GRAPH_UPDATE_EVENT_MAP = getApi('eventSingleMap/updateSingleMapIndex.api')
+// 事件分析接口 删除事件单图
+export const GRAPH_DEL_EVENT_MAP = getApi('eventSingleMap/deleteSingleMapIndex.api')
+// 事件分析接口查询事件单图
+export const GRAPH_QUERY_EVENT_MAP = getApi('eventSingleMap/querySingleMapIndex.api')
+// 事件分析接口 分群选择
+export const GRAPH_QUERY_GROUP_EVENT_MAP = getApi('eventSingleMap/queryGroup.api')
 
+// 漏斗分析接口
+// 获取圈选指标和自定义事件 funnel/indexList.api
+export const GRAPH_GET_FUNNEL_INDEX_LIST = getApi('funnel/indexList.api')
+// 漏斗单图列表/funnel/singleMapList.api
+export const GRAPH_GET_FUNNEL_MAP_LIST = getApi('funnel/singleMapList.api')
+// 创建漏斗单图funnel /addSingleMap.api
+export const GRAPH_CREATE_FUNNEL_MAP = getApi('funnel/addSingleMap.api')
+// 修改漏斗单图 funnel /updateSingleMap.api
+export const GRAPH_UPDATE_FUNNEL_MAP = getApi('funnel/updateSingleMap.api')
+// 查询漏斗单图 funnel /querySingleMap.api
+export const GRAPH_QUERY_FUNNEL_MAP = getApi('funnel/querySingleMap.api')
+// 删除漏斗单图unnel /deleteSingleMap.api
+export const GRAPH_DEL_FUNNEL_MAP = getApi('funnel/deleteSingleMap.api')
+// 获取漏斗单图指标/funnel/singleMapIndex.api
+export const GRAPH_GET_FUNNEL_MAP_INDEX = getApi('funnel/singleMapIndex.api')
+// 分群选择funnel /queryGroup.api
+export const GRAPH_GET_FUNNEL_QUERY_GROUPS = getApi('funnel/queryGroup.api')
 
-export const BANNER = getApiJson('classroom/column/getAllColumns.do');
+// 留存分析接口
+// 获取圈选指标和自定义事件 /retain/indexList.api
+export const GRAPH_GET_RETAIN_INDEX_LIST = getApi('retain/indexList.api')
+// 留存单图列表 retain/singleMapList.api
+export const GRAPH_GET_RETAIN_MAP_LIST = getApi('retain/singleMapList.api')
+// 创建留存单图 retain/addSingleMap.api
+export const GRAPH_CREATE_RETAIN_MAP = getApi('retain/addSingleMap.api')
+// 修改留存单图 retain/updateSingleMap.api
+export const GRAPH_UPDATE_RETAIN_MAP = getApi('retain/updateSingleMap.api')
+// 查询留存单图 retain/querySingleMap.api
+export const GRAPH_QUERY_RETAIN_MAP = getApi('retain/querySingleMap.api')
+// 删除留存单图 retain/deleteSingleMap.api
+export const GRAPH_DEL_RETAIN_MAP = getApi('retain/deleteSingleMap.api')
+// 获取留存单图指标 retain/singleMapIndex.api
+export const GRAPH_GET_RETAIN_MAP_INDEX = getApi('retain/singleMapIndex.api')
+// 分群选择 retain/queryGroup.api
+export const GRAPH_GET_RETAIN_QUERY_GROUPS = getApi('retain/queryGroup.api')
 
+// 渠道分析接口 获取渠道号
+export const GRAPH_GET_CHANNEL_LIST = getApi('channel/channelList.api')
+// 分群分析
+export const GRAPH_GET_CHANNEL_QUERY_GROUP_LIST = getApi('channel/queryGroup.api')
+// 渠道单图列表
+export const GRAPH_GET_CHANNEL_MAP_LIST = getApi('channel/singleMapList.api')
+// 创建渠道单图
+export const GRAPH_CREATE_CHANNEL_MAP = getApi('channel/addSingleMap.api')
+// 修改渠道单图
+export const GRAPH_UPDATE_CHANNEL_MAP = getApi('channel/updateSingleMap.api')
+// 查询渠道单图
+export const GRAPH_QUERY_CHANNEL_MAP = getApi('channel/querySingleMap.api')
+// 删除渠道单图
+export const GRAPH_DEL_CHANNEL_MAP = getApi('channel/deleteSingleMap.api')
+// 获取渠道单图指标
+export const GRAPH_GET_CHANNEL_MAP_INDEX = getApi('channel/singleMapIndex.api')
+// 分群分析
+// 分群选择group/queryGroup.api
+export const GRAPH_GET_GROUP_QUERY_GROUPS = getApi('group/queryGroup.api')
+// 分群单图列表 group/singleMapList.api
+export const GRAPH_GET_GROUP_MAP = getApi('group/singleMapList.api')
+// 创建分群单图group/addSingleMap.api
+export const GRAPH_CREATE_GROUP_MAP = getApi('group/addSingleMap.api')
+// 修改分群单图 group/updateSingleMap.api
+export const GRAPH_UPDATE_GROUP_MAP = getApi('group/updateSingleMap.api')
+// 查询分群单图 group/querySingleMap.api
+export const GRAPH_QUERY_GROUP_MAP = getApi('group/querySingleMap.api')
+// 删除分群单图 group/deleteSingleMap.api
+export const GRAPH_DEL_GROUP_MAP = getApi('group/deleteSingleMap.api')
+// 获取分群单图指标 group/singleMapIndex.api
+export const GRAPH_GET_GROUP_MAP_INDEX = getApi('group/singleMapIndex.api')
+//
 
-export const RSA_MODULUS = [
-    '008ec56d6281753fc8d2',
-    'd1e6ce0f93c38036e1db',
-    '7b53d1d3ce9a65f2bfc3',
-    'b385640c61154c7935c4',
-    'eeea900e982092fe4ae8',
-    'd41451a56a18707ec195',
-    'd5c5deb5bdef1b891f5f',
-    '358c65c6e6f27971be03',
-    'fff66e0314fda64302e7',
-    'cf530b35a8e13fdf0b18',
-    '6d593e21f9000da84c84',
-    '058b9924287d3eab698e',
-    'c281d9c98646cbea05'
-].join('');
-export const RSA_MODULUSNEW = [
-    '00959aceccb1408211c0d541712b418929c09a1cefe7d6e93d88bb59a4ec3c6bef91da9fa0ecaf9ee1bf24469ee9dbdb8b5aa6fb9cb4bbe7ea9e982da712f87c60c67be4c46a8563e724dbb0950d398f7594b3314df8120aa0639cdc12d0ab2a9d7e263422c3fa887630335147c4b6b72f3066e1568d68bd01a97967ee7190e1b1'
-].join('');
-export const RSA_COMPONENT = '010001';
-export const RSA_KEY_LENGTH = 1024;
+// 圈选 接口
+// qrcode生成
+export const CIRCLE_GET_QRCODE = getApi('select/QrCodeImg.api')
+// 获取web圈选默认的WebUrl
+export const GET_WEB_URL = getApi('select/webCheck.api')
 
-//首页
-export const GETHOMEPAGE = getApiJson('exam/home/getHomePageInfo.do');
+// 事件管理接口
+// 事件管理-圈选事件  圈选事件展示
+export const M_EVENT_GET_CIRCLE_LIST = getApi('select/selectList.api')
+// 事件管理-圈选事件  圈选事件指标删除
+export const M_EVENT_DEL_CIRCLE_INDEX = getApi('select/deleteSelec.api')
+// 事件管理-圈选事件  圈选事件指标修改
+export const M_EVENT_UPDATE_CIRCLE_INDEX = getApi('select/updateSelect.api')
+// 事件管理-圈选事件  查询指标明细
+export const M_EVENT_GET_CIRCLE_DETAIL = getApi('select/indexDetail.api')
+// 事件管理-圈选事件  圈选指标趋势
+export const M_EVENT_GET_CIRCLE_INDEX = getApi('select/selectIndex.api')
 
+// 事件管理-埋点事件
+// 埋点事件展示
+export const TRENDEVENT_GET_EVENTS_LIST = getApi('event/eventList.api')
+// 新建埋点事件
+export const TREND_EVENT_CREATE_EVENTS = getApi('event/addEvent.api')
+// 埋点事件名称修改
+export const TREND_EVENT_UPDATE_EVENTS_NAME = getApi('event/updateEvent.api')
+// 埋点事件删除
+export const TREND_EVENT_DEL_EVENTS = getApi('event/deleteEvent.api')
+// 埋点事件id是否存在
+export const TREND_EVENT_IS_EXIST_EVENT = getApi('event/isExistEvent.api')
+// 指标展示
+export const TREND_EVENT_GET_INDEX = getApi('event/eventTrend.api')
 
+// 事件管理-复合指标
+// 复合指标展示 composite/multiIndexList.api
+export const COMPOSITE_GET_MULTI_INDEX_LIST = getApi('composite/multiIndexList.api')
+// 获取圈选指标和预定义指标 composite/IndexList.api
+export const COMPOSITE_GET_INDEX_LIST = getApi('composite/IndexList.api')
+// 创建复合指标 composite/addMultipleIndex.api
+export const COMPOSITE_CREATE_MULTI_INDEX_LIST = getApi('composite/addMultipleIndex.api')
+// 复合指标删除 composite/deleteMultipleIndex.api
+export const COMPOSITE_DEL_MULTI_INDEX_LIST = getApi('composite/deleteMultipleIndex.api')
+// 查询指标明细 composite/indexDetail.api
+export const COMPOSITE_QUERY_MULTI_INDEX_LIST = getApi('composite/indexDetail.api')
+// 修改复合指标  后续改
+export const COMPOSITE_UPDATE_MULTI_INDEX_LIST = getApi('composite/modifyMultipleIndex.api')
+// 复合指标 统计趋势数据
+export const COMPOSITE_TREND = getApi('composite/compositeTrend.api')
+//  other/dimension.api  获取维度信息
+export const DIMENSION_GET_INFO = getApi('other/dimension.api')
+// other/dimensionValueList.api 维度对于值选项
+export const DIMENSION_GET_VALUE_LIST = getApi('other/dimensionValueList.api')
+/* ******************用户分群************************/
+// 获取用户分群列表
+export const GET_USER_GROUP_LIST = getApi('userGroup/list.api')
+// 创建用户分群
+export const ADD_USER_GROUP_INFO = getApi('userGroup/addUserGroup.api')
+// 修改用户分群
+export const UPDATE_USER_GROUP_INFO = getApi('userGroup/updateUserGroup.api')
+// 查询用户分群
+export const QUERY_USER_GROUP_INFO = getApi('userGroup/queryUserGroup.api')
+// 删除用户分群
+export const DELETE_USER_GROUP = getApi('userGroup/deleteUserGroup.api')
+// 获取圈选指标、预定义指标及复合指标
+export const GET_USER_INDEX_LIST = getApi('userGroup/indexList.api')
+// 获取用户细查列表
+export const GET_GROUP_DETAIL_LIST = getApi('userGroup/userList.api')
+//  获取用户细查具体信息
+export const GET_GROUP_DETAIL_QUERY = getApi('userGroup/queryUser.api')
+// 获取用户细查具体事件信息
+export const GET_GROUP_DETAIL_EVENT_INFO = getApi('userGroup/queryUserEvent.api')
 
-//轮播banner的接口
-//export const LISTBANNER = getApiJson('classroom/banner/listBannerCourse.do');
-export const CONNECTUPLOAD = getApiJson('classroom/course/tryConnectCeph.do');
-export const DELETEBANNER = getApiJson('classroom/banner/deleteBanner.do');
-export const SEARCHBINDBANNER = getApiJson('classroom/banner/searchBindBannerByCondition.do');
-export const COURSEBINDBANNER = getApiJson('classroom/banner/courseBindBanners.do');
-export const UPLOAD = getApiJson('classroom/course/uploadFile.do');
-export const UPDATEBINDBANNER = getApiJson('classroom/banner/updateBindBanner.do');  //更新banner
-export const CHANGEBANNERORDER = getApiJson('classroom/banner/changeOrder.do');   //banner列表排序
+// 数据接口测试
+export const HEAD_CELL_DATA = getLocApi('overview/getHeadFourCellData')
+// 数据接口 事件分析
+export const EVENT_CELL_DATA = getLocApi('eventAnalyze/getEventAnalyzeData')
+// 留存分析的数据接口
+export const GET_ACTIVE_USER_RETENTION = getLocApi('retention/getActiveUserRetention')
 
-//课程
-export const GETCOURSETYPE = getApiJson('classroom/course/getCourseType.do');
-export const GETFIRSTCATEGORY = getApiJson('classroom/category/getFirstCategory.do');
-export const GETNEXTCATEGORY = getApiJson('classroom/category/getNextCategory.do');
-export const GETCOURSE = getApiJson('classroom/course/getCourseByCondition.do');
-export const ADDCOURSE = getApiJson('classroom/course/addCourse.do');
-export const GETCOURSECOUNT = getApiJson('classroom/course/getCourseCountByCondtion.do');
-export const UPDATECOURSE = getApiJson('classroom/course/updateCourseInfo.do');
-export const DELETECOURSE = getApiJson('classroom/course/deleteCourseByCouresId.do');
-export const GETCOURSEDEFAULTPHOTO = getApiJson('classroom/course/getCourseDefaultPhoto.do');
-export const GETCOURSEBYCOURSEID = getApiJson('classroom/course/getCourseByCourseId.do');
-export const VALIDATECOURSE = getApiJson('classroom/course/validateCourseByCouresIdAndAdmin.do');//课程删除校验
-export const WHITECOURSEID= getApiJson('classroom/course/addToWhitelist.do');
-export const LOOKWHITEPERSON= getApiJson('classroom/course/lookWhiteAndBlackListByCourseId.do');
-// 添加所属分类
-export const ADDCATEGOTY= getApiJson('classroom/category/addCategory.do');
-
-//试题库
-export const QUESTIONTYPELIST = getApiJson('exam/question/bank/getTypeList.do');
-export const QUESTIONPOINTLIST = getApiJson('exam/question/bank/getPointList.do');
-export const QUESTIONPOINTLIST2 = getApiJson('exam/question/bank/getPointList.do');
-export const QUESTIONPOINTLIST3 = getApiJson('exam/question/bank/getPointList.do');
-
-export const QUESTIONDIFFICULTYLIST = getApiJson('exam/question/bank/getDifficultyLevelList.do');
-export const QUESTIONPAGELIST = getApiJson('exam/question/bank/');
-export const DELETEQUESTION = getApiJson('exam/question/bank/deleteQuestionById.do');
-export const ADDQUESTION = getApiJson('exam/question/bank/addQuestionInfo.do');
-export const ADDQUESTIONLIST = getApiJson('exam/question/bank/addQuestionList.do');
-export const UPDATEQUESTION = getApiJson('exam/question/bank/updateQuestionInfo.do');
-export const GETQUESTIONINFO = getApiJson('exam/question/bank/getQuestionInfo.do');
-export const ISQUESTIONEDITSTATUS = getApiJson('exam/question/bank/validateQuestionEditStatus.do');
-
-
-//试卷库
-export const PAPERCLASSIFYLIST = getApiJson('exam/paper/bank/getPaperClassifyList.do');
-export const GETPAPERBYPAGE = getApiJson('exam/paper/bank/getPaperByPage.do');
-export const DELETEPAPERBYID = getApiJson('exam/paper/bank/deletePaperById.do');  //删除试卷
-export const ADDPAPERINFO = getApiJson('exam/paper/bank/addPaperInfo.do');  //新建空白试卷
-export const UPDATEPAPERINFO = getApiJson('exam/paper/bank/updatePaperInfo.do');  //编辑试卷
-// 获取试卷库详情
-export const GETPAPERDETAILINFO = getApiJson('exam/paper/bank/getPaperInfo.do');
-// 添加试卷分类
-export const ADDPAPERCLASS = getApiJson('exam/paper/addPaperType.do');
-
-
-//考试详情
-export const IMPORTEXCELPERSON = getApiJson('exam/temp/analysisImportantPersonExcelShowAddPerson.do'); // 导入考试人员名单
-export const GETEXAMINFOBYEXAMCONDITION = getApiJson('exam/temp/getExamInfoByExamCondition.do'); //考试列表
-export const GETEXAMDETAILINFO = getApiJson('exam/temp/getExamDetailInfo.do'); //根据考试id查询试卷详细信息
-export const DELETEEXAM = getApiJson('exam/temp/deleteExam.do'); //删除考试
-export const VALIDATECHANGEEXAMINFO = getApiJson('exam/temp/validateChangeExamInfo.do'); //校验本次考试是否能进行编辑
-export const GETEXAMTOTALCOUNTINFO = getApiJson('exam/temp/getExamTotalCountInfo.do'); //统计信息
-export const GETEXAMPERSONSCORECOUNTINFO = getApiJson('exam/temp/getExamPersonScoreCountInfo.do'); //考试人员信息
-export const GETCREATEBLANKPAPERINFO = getApiJson('exam/temp/getCreateBlankPaperInfo.do'); //获取生成空白试卷需要信息
-export const ADDQUESTIONPOINT = getApiJson('exam/question/bank/addQuestionPoint.do'); //添加试题知识点
-export const CREATEEXAM = getApiJson('exam/temp/createExam.do'); //创建考试信息
-export const GETQUESTIONBYPAGE = getApiJson('exam/question/bank/getQuestionByPage.do'); //从试题库选题
-export const GETEXAMDEFAULTPHOTO = getApiJson('exam/photo/getExamDefaultPhoto.do'); //获取默认考试封面图片
-export const GETALLGROUPINFO = getApiJson('exam/course/getAllGroupInfo.do'); //获取族群列表
-export const GETPERSONINFOBYGROUPID = getApiJson('exam/course/getPersonInfoByGroupId.do'); //通过族群id获取指定族群人员信息
-export const GETPERSONBYBLURNAME = getApiJson('exam/course/getPersonByBlurName.do'); //根据考试id，人名模糊查找获取某公司某部门下人员名单
-export const GETALLDEPARTMENT = getApiJson('exam/course/getAllDepartment.do'); //获取公司、部门分布信息接口
-export const GETISCHECKEXAMPERSON = getApiJson('exam/course/getIsCheckExamPerson.do'); //7.9根据考试id获取某公司某部门下人员名单接口
-export const GROUPISEXISTBYGROUPNAME = getApiJson('exam/course/groupIsExistByGroupName.do'); //通过族群名称判断族群是否存在
-export const ADDGROUP = getApiJson('exam/course/addGroup.do'); //新增/编辑族群
-export const DOWNLOADPAPERTEMPLATE = getApiJson('exam/paper/bank/downloadPaperTemplate.do'); //下载考试试卷EXCEL模板接口
-export const DOWNLOADPERSONTEMPLATE = getApiJson('exam/temp/downloadPersonTemplate.do'); // 下载导入人员模板
-export const SAVEEXAMDEFAULTPHOTO = getApiJson('exam/photo/saveExamDefaultPhoto.do');// 上传考试封面图像
-export const UPLOADPAPERBANK = getApiJson('exam/paper/bank/uploadPaperBank.do');// 上传考试EXcel
-export const UPLOADPQUESTIONBANK = getApiJson('exam/question/bank/uploadQuestionBank.do');// 上传试题EXcel
-export const GETQUSTIONSDETAILFROMBANK = getApiJson('exam/temp/getQustionsDetailFromBank.do');// 7.1从题库获取选择题目的详细信息接口
-export const GETPOINTLIST = getApiJson('exam/question/bank/getPointList.do');// 知识点接口
-
-
-
-
-
-/* 数据概览 */
-export const GET_OVERVIEW_DATA = getApiJson('index/');
-export const GET_OVERVIEW_COMPARE_DATA = getApiJson('comparedate/');
-
-
-/* 导航栏菜单 */ //getControlMenu
-//export const GET_CONTROL_MENU = getApiJson('getControlMenu.json');
-export const GET_CONTROL_MENU = 'https://www.easy-mock.com/mock/5a4e4c1316d2051b06fd2cc8/zhouying/getControlMenu.json';
+// 渠道管理列表展示
+export const GET_SETTING_LIST = getApi('setting/settingList.api')
+// 创建渠道副本
+export const ADD_SETTING = getApi('setting/addSetting.api')
+// 删除渠道副本
+export const DELETE_SETTING = getApi('setting/deleteSetting.api')
+// 修改渠道副本
+export const MODIFY_SETTING = getApi('setting/modifySetting.api')
+// 导入渠道副本
+export const IMPORT_EXCEL_SETTING = getApi('setting/DealWithExcelData.api')
+// 下载模板
+export const DOWN_LOAD_URL = `${HOST_BASE}/pathImage/UEM内部测试/渠道管理模板.xlsx`

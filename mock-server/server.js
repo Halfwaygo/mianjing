@@ -1,4 +1,3 @@
-
 var path = require('path');
 var fs = require('fs');
 var mock = require("mockjs");
@@ -8,7 +7,7 @@ var server = app.listen(port, function() {
   console.info('Mock server is listening at ' + port);
 });
 
-const prefix = '';
+const prefix = '/api';
 
 var api = {};
 var apiPath = path.join(__dirname, './api.json');
@@ -40,7 +39,7 @@ app.use(function(req, res) {
           }
 
           var apiRes = reqData.res;
-          data = reqData.mock ? mock.mock(apiRes) : apiRes;
+          data = reqData.mock !== false ? mock.mock(apiRes) : apiRes;
           delay = reqData.delay || 0;
           return true;
         }) !== undefined) {

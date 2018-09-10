@@ -1,10 +1,16 @@
 {
-    "plugins": [
-        "transform-runtime",
-        "transform-object-assign"
-    ],
     "presets": [
-        "es2015",
+        [
+            "env",
+            {
+                "modules": false,
+                "targets": {
+                    "browsers": [
+                        "last 2 versions"
+                    ]
+                }
+            }
+        ],
         "stage-0"
     ],
     "comments": false

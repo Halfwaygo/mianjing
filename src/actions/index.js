@@ -1,28 +1,11 @@
-import rootActions from "./root";
-import dataOverviewActions from "./dataOverview";
-import bannerActions from "./banner";
-import courseActions from "./course";
-import testActions from "./test";
-import paperActions from "./paper";
-import examActions from "./exam";
-import getControlMenuActions from "./getControlMenu";
-
-
-
+import rootActions from './root'
+import dashboardActions from './dashboard'
+import dimeventActions from './dimevent'
+import setting from './setting'
 
 export default {
     ...rootActions,
-    ...dataOverviewActions,
-    ...bannerActions,
-    ...courseActions,
-    ...testActions,
-    ...paperActions,
-    ...examActions,
-    ...getControlMenuActions,
-
-    
-
-
-
-
+    ...dashboardActions,
+    ...dimeventActions,
+    ...setting
 }

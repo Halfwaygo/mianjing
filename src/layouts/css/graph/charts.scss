@@ -1,0 +1,91 @@
+.list-container{
+    .items-form{
+        margin-top: 25px;
+        background-color: #FFFFFF;
+        box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        position: relative;
+        .charts-line{
+            height: 300px;
+            line-height: 295px;
+            text-align: center;
+            min-width: 300px ;
+            border-bottom: 1px solid #E3EAF0;
+            margin: 0 10px;
+            padding-bottom: 10px;
+        }
+        .icon-edit{
+            line-height: 40px;
+            padding: 0 20px;
+            .modify-info{
+                display: inline-block;
+                color: rgba(72,89,111,0.5);
+                font-size: 14px;
+            }
+            .edit-btn{
+                display: inline-block;
+                float: right;
+                position: relative;
+                top: 5px;
+                i{
+                    margin-left: 30px;
+                    font-size: 17px;
+                    color: #5A6D82;
+                }
+            }
+        }
+        .title{
+            padding: 20px 20px 0;
+            .name{
+                font-size: 14px;
+                color: #5A6D82;
+            }
+            .time{
+                font-size: 12px;
+                color: #8b99a7;
+                opacity: 0.7;
+            }
+            .behavior{
+                font-size: 12px;
+                color: rgba(72,89,111,0.7);
+                margin-top: 11px;
+                .box{
+                    margin-right: 25px;
+                    .graySpan{
+                        background: rgba(236,236,236,0.6);
+                        padding: 1px 3px;
+                        display: inline-block;
+                        border-radius: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+.addLog{
+    .el-dialog__header{
+        background-color: #F7FAFF;
+    }
+    .el-dialog__title{
+        font-size: 16px;
+        color: #5A6D82;
+    }
+    .addLogBox{
+        .infoList{
+            padding-top: 20px;
+            ul{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                li{
+                    margin-bottom: 14px;
+                    color: #5A6D82;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+.table-container{
+    margin-top: 25px;
+}

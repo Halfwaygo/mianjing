@@ -1,9 +1,0 @@
-// Opacity
-
-.boxshadow(@x; @y; @s; @c) {
-	filter:progid:DXImageTransform.Microsoft.Shadow(color='@c', Direction=0,Strength=@s);/*for ie6,7,8*/  
-        
-    -moz-box-shadow: @x @y @s @c;/*firefox*/  
-    -webkit-box-shadow: @x @y @s @c;/*webkit*/  
-    box-shadow: @x @y @s @c;/*opera或ie9*/ 
-}

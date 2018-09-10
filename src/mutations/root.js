@@ -1,79 +1,62 @@
-import {SHOW_PAGE_LOADING, HIDE_PAGE_LOADING, LOGIN, LOGINS,  ISLOGIN,LOGINNEW,LOGINOUT,BANNER,SET_APP_TYPE,SET_APP_TYPES, SET_CALIBERID,SET_APP_VERSION,SET_APP_KEY, SET_DATE, SET_APPID} from "../constants/actions";
-import * as C from "../constants/api";
-import utils from  '../utils/misc';
-
+import * as AC from '../constants/actions'
+import * as C from '../constants/api'
 const state = {
     pageLoading: false,
-    //isLogin: false,
-    AppType: 2,
-    AppTypes:2,
-    AppKey: 1,
-    AppVersion: 2,
-    appid: 12,
-    date: [new Date(utils.oneWeekAgo()), new Date()],
-};
+    currentUser: '',
+    appId: sessionStorage.getItem('appId') || '',
+    webUrl: {
+        isCircle: 'false',
+        url: ''
+    },
+    platform: '0',
+    // 应用列表
+    appList: []
+}
 const mutations = {
 
-    [SHOW_PAGE_LOADING](state){
-        state.pageLoading = true;
+    [AC.SHOW_PAGE_LOADING](state) {
+        state.pageLoading = true
     },
 
-    [HIDE_PAGE_LOADING](state){
-        state.pageLoading = false;
+    [AC.HIDE_PAGE_LOADING](state) {
+        state.pageLoading = false
     },
 
-    [LOGIN](state, {payload}){
-        //state.isLogin = true;
-    },
-    //新增加的
-    [LOGINS](state, {payload}){
-        //state.isLogin = true;
-    },
-    //09
-    [LOGINNEW](state, {payload}){
-       // state.isLogin = true;
-    },
-    [LOGINOUT](state, {payload}){
-       // state.isLogin = true;
-    },
-    [BANNER](state, {payload}){
-       // state.isLogin = true;
+    [AC.CHANGE_CURRENT_USER](state, {payload}) {
+        state.currentUser = payload
     },
 
-    //10月新增
-    [ISLOGIN](state, {payload}){
-       // state.isLogin = true;
-    },
-    [SET_APP_TYPE](state, {payload}){
-        //console.log(payload.num)
-        state.AppType = payload.num;
-    },
-    [SET_APP_TYPES](state, {payload}){
-        //console.log(payload.num)
-        state.AppTypes = payload.num;
+    [C.GET_WEB_URL](state, {payload}) {
+        state.webUrl = payload.data
     },
 
-    [SET_APPID](state, {payload}){
-        state.appid = payload.num;
+    [AC.APP_LIST_MIGRATION](state, {payload}) {
+        state.appList = payload
+        sessionStorage.setItem('migratedApps', JSON.stringify(payload))
+        const defaultApp = payload[0]
+        state.appId = `${defaultApp.appId}`
+        state.platform = `${defaultApp.webMark}`
     },
 
-    [SET_CALIBERID](state, {payload}){
-        state.caliberId = payload.num;
-    },
-    [SET_APP_VERSION](state, {payload}){
-        //console.log(payload.num)
-        state.AppVersion = payload.num;
-    },
-    [SET_APP_KEY](state, {payload}){
-        //console.log(payload.num)
-        state.AppKey = payload.num;
-    },
-
-    [SET_DATE](state, {payload}){
-        state.date = payload.date;
+    [AC.MIGRATED_APP_LIST_LOADED](state) {
+        const json = sessionStorage.getItem('migratedApps') || '[]'
+        const appId = sessionStorage.getItem('appId') || (json[0] && `${json[0].appId}`)
+        const appList = JSON.parse(json)
+        const filterApp = appList.filter(item => `${item.appId}` === appId)[0]
+        state.appList = appList
+        if (filterApp) {
+            state.platform = `${filterApp.webMark}`
+            state.appId = appId
+        }
     },
 
-};
+    [AC.APP_ID_CHANGED](state, {payload}) {
+        const {appId, webMark} = payload
+        sessionStorage.setItem('appId', appId)
+        state.platform = `${webMark}`
+        state.appId = `${appId}`
+    }
+}
 
 export default{
     state,

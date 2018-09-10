@@ -1,377 +1,234 @@
 {
-  
-  "app": [
-    {
-      "url": "/api/index/1.json",
-      "desc": "数据概览",
-      "mock": true,
-      "res": {
-        "code": 200,
-        "msg": "Hi, this is mock server.",
-        "result": {
-          "general": {
-              "activeRate": "29.26%",
-              "totalAllApp": "611,768",
-              "yestdayIncr": "35,930",
-              "yestdayActive": "178,988"
-          },
-          "code": 200,
-          "contrast": {
-              "咪咕音乐": [
-                  {
-                      "name": "咪咕音乐",
-                      "id": 4
-                  }
-              ],
-              "咪咕互娱": [
-                  {
-                      "name": "咪咕善跑",
-                      "id": 6
-                  },
-                  {
-                      "name": "咪咕游玩",
-                      "id": 5
-                  },
-                  {
-                      "name": "咪咕游戏",
-                      "id": 19
-                  }
-              ],
-              "咪咕动漫": [
-                  {
-                      "name": "咪咕动漫",
-                      "id": 8
-                  },
-                  {
-                      "name": "和彩印",
-                      "id": 7
-                  }
-              ],
-              "咪咕数媒": [
-                  {
-                      "name": "咪咕阅读",
-                      "id": 14
-                  },
-                  {
-                      "name": "灵犀",
-                      "id": 15
-                  },
-                  {
-                      "name": "咪咕星宝",
-                      "id": 16
-                  },
-                  {
-                      "name": "咪咕学堂",
-                      "id": 17
-                  }
-              ],
-              "咪咕文化": [
-                  {
-                      "name": "考勤",
-                      "id": 12
-                  },
-                  {
-                      "name": "咪咕家",
-                      "id": 2
-                  },
-                  {
-                      "name": "咪咕印象",
-                      "id": 13
-                  },
-                  {
-                      "name": "咪咕趣",
-                      "id": 3
-                  },
-                  {
-                      "name": "咪咕中信",
-                      "id": 18
-                  },
-                  {
-                      "name": "UEM内部测试",
-                      "id": 20
-                  }
-              ],
-              "咪咕视讯": [
-                  {
-                      "name": "咪咕视频",
-                      "id": 9
-                  },
-                  {
-                      "name": "咪咕影院",
-                      "id": 10
-                  },
-                  {
-                      "name": "咪咕直播",
-                      "id": 11
-                  }
-              ]
-          },
-          "yestodayactive": {
-              "data": "115369,48391,8561,6568,99,0",
-              "category": "咪咕阅读,咪咕音乐,咪咕善跑,咪咕动漫,考勤,和彩印"
-          },
-          "type": 2,
-          "list": [
-              {
-                  "YestIncUser": 17258,
-                  "YestStartUp": 1301020,
-                  "name": "咪咕阅读",
-                  "type": "ios",
-                  "YestUser": 115369,
-                  "CountUser": 344289,
-                  "url": "/app-generals/14.html"
-              },
-              {
-                  "YestIncUser": 12361,
-                  "YestStartUp": 248532,
-                  "name": "咪咕音乐",
-                  "type": "ios",
-                  "YestUser": 48391,
-                  "CountUser": 223230,
-                  "url": "/app-generals/4.html"
-              },
-              {
-                  "YestIncUser": 3325,
-                  "YestStartUp": 26333,
-                  "name": "咪咕动漫",
-                  "type": "ios",
-                  "YestUser": 6568,
-                  "CountUser": 24881,
-                  "url": "/app-generals/8.html"
-              },
-              {
-                  "YestIncUser": 2986,
-                  "YestStartUp": 55795,
-                  "name": "咪咕善跑",
-                  "type": "ios",
-                  "YestUser": 8561,
-                  "CountUser": 19254,
-                  "url": "/app-generals/6.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 579,
-                  "name": "考勤",
-                  "type": "ios",
-                  "YestUser": 99,
-                  "CountUser": 114,
-                  "url": "/app-generals/12.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "和彩印",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/7.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕家",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/2.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕视频",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/9.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕影院",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/10.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕直播",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/11.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕游玩",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/5.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕印象",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/13.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕趣",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/3.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "灵犀",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/15.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕星宝",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/16.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕学堂",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/17.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕中信",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/18.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "咪咕游戏",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/19.html"
-              },
-              {
-                  "YestIncUser": 0,
-                  "YestStartUp": 0,
-                  "name": "UEM内部测试",
-                  "type": "ios",
-                  "YestUser": 0,
-                  "CountUser": 0,
-                  "url": "/app-generals/20.html"
+    "看板": [
+        {
+            "url": "/amber/board/overview/getActiveUserNum.api",
+            "desc": "获取活跃用户图表信息",
+            "mock": true,
+            "res": {
+                "code": "200",
+                "message": "操作成功！",
+                "data": {
+                  "ratio": "1.4%",
+                  "difference": 733622,
+                  "queryDataList": [
+                    {
+                      "groupField": "0",
+                      "countNum|+1": 6820
+                    },
+                    {
+                      "groupField": "1",
+                      "countNum": 3948
+                    },
+                    {
+                      "groupField": "2",
+                      "countNum": 2700
+                    },
+                    {
+                      "groupField": "3",
+                      "countNum": 2498
+                    },
+                    {
+                      "groupField": "4",
+                      "countNum": 2429
+                    },
+                    {
+                      "groupField": "5",
+                      "countNum": 2496
+                    },
+                    {
+                      "groupField": "6",
+                      "countNum": 5246
+                    },
+                    {
+                      "groupField": "7",
+                      "countNum": 7074
+                    },
+                    {
+                      "groupField": "8",
+                      "countNum": 5928
+                    },
+                    {
+                      "groupField": "9",
+                      "countNum": 46507
+                    },
+                    {
+                      "groupField": "10",
+                      "countNum": 54295
+                    },
+                    {
+                      "groupField": "11",
+                      "countNum": 43491
+                    },
+                    {
+                      "groupField": "12",
+                      "countNum": 65684
+                    },
+                    {
+                      "groupField": "13",
+                      "countNum": 47337
+                    },
+                    {
+                      "groupField": "14",
+                      "countNum": 66558
+                    },
+                    {
+                      "groupField": "15",
+                      "countNum": 54110
+                    },
+                    {
+                      "groupField": "16",
+                      "countNum": 48896
+                    },
+                    {
+                      "groupField": "17",
+                      "countNum": 46868
+                    },
+                    {
+                      "groupField": "18",
+                      "countNum": 42013
+                    },
+                    {
+                      "groupField": "19",
+                      "countNum": 45246
+                    },
+                    {
+                      "groupField": "20",
+                      "countNum": 41848
+                    },
+                    {
+                      "groupField": "21",
+                      "countNum": 39189
+                    },
+                    {
+                      "groupField": "22",
+                      "countNum": 32180
+                    },
+                    {
+                      "groupField": "23",
+                      "countNum": 20261
+                    }
+                  ],
+                  "comparedDataList": [
+                    {
+                      "groupField": "0",
+                      "countNum": 6103
+                    },
+                    {
+                      "groupField": "1",
+                      "countNum": 4770
+                    },
+                    {
+                      "groupField": "2",
+                      "countNum": 2941
+                    },
+                    {
+                      "groupField": "3",
+                      "countNum": 2593
+                    },
+                    {
+                      "groupField": "4",
+                      "countNum": 2604
+                    },
+                    {
+                      "groupField": "5",
+                      "countNum": 2793
+                    },
+                    {
+                      "groupField": "6",
+                      "countNum": 4584
+                    },
+                    {
+                      "groupField": "7",
+                      "countNum": 7145
+                    },
+                    {
+                      "groupField": "8",
+                      "countNum": 7408
+                    },
+                    {
+                      "groupField": "9",
+                      "countNum": 60375
+                    },
+                    {
+                      "groupField": "10",
+                      "countNum": 60851
+                    },
+                    {
+                      "groupField": "11",
+                      "countNum": 60954
+                    },
+                    {
+                      "groupField": "12",
+                      "countNum": 57946
+                    },
+                    {
+                      "groupField": "13",
+                      "countNum": 57265
+                    },
+                    {
+                      "groupField": "14",
+                      "countNum": 43041
+                    },
+                    {
+                      "groupField": "15",
+                      "countNum": 38832
+                    },
+                    {
+                      "groupField": "16",
+                      "countNum": 35642
+                    },
+                    {
+                      "groupField": "17",
+                      "countNum": 27905
+                    },
+                    {
+                      "groupField": "18",
+                      "countNum": 19648
+                    },
+                    {
+                      "groupField": "19",
+                      "countNum": 42869
+                    },
+                    {
+                      "groupField": "20",
+                      "countNum": 45624
+                    },
+                    {
+                      "groupField": "21",
+                      "countNum": 44718
+                    },
+                    {
+                      "groupField": "22",
+                      "countNum": 43088
+                    },
+                    {
+                      "groupField": "23",
+                      "countNum": 44141
+                    }
+                  ]
+                }
               }
-          ],
-          "user": {
-              "activce": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41871,113790,130036,138902,144239,149158,152954,154937,167262,175047,178571,180405,195397,178988",
-              "incr": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41871,87002,52360,43574,40522,37303,33250,31041,38587,41970,38969,39375,50014,35930",
-              "startUp": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228569,989185,1190696,1294304,1303280,1378827,1449399,1490688,1592768,1634496,1654923,1610264,1745481,1632259",
-              "category": "2017-02-26,2017-02-27,2017-02-28,2017-03-01,2017-03-02,2017-03-03,2017-03-04,2017-03-05,2017-03-06,2017-03-07,2017-03-08,2017-03-09,2017-03-10,2017-03-11,2017-03-12,2017-03-13,2017-03-14,2017-03-15,2017-03-16,2017-03-17,2017-03-18,2017-03-19,2017-03-20,2017-03-21,2017-03-22,2017-03-23,2017-03-24,2017-03-25,2017-03-26,2017-03-27"
-          }
+        },
+        {
+            "url": "/user/logout.api",
+            "desc": "用户登出",
+            "mock": true,
+            "res": {
+                "code": 200,
+                "msg": ""
+            }
         }
-
-      }
-    },
-    {
-      "url": "/api/app/lasterThirtyUserTrendData.jhtml",
-      "desc": "数据概览",
-      "mock": true,
-      "res": {
-        "code": 200,
-        "msg": "Hi, this is mock server.",
-        "result": {
-          "xAxisData": [201602, 201603, 201604],
-          "seriesData": [220, 182, 191]
+    ],
+    "default": [
+        {
+            "url": "/",
+            "desc": "Index",
+            "mock": true,
+            "res": {
+                "code": 200,
+                "msg": "Hi, this is mock server.",
+                "data": ""
+            }
         }
-      }
-    },
-    {
-      "url": "/api/app/yesterdayActiveUserData.jhtml",
-      "desc": "数据概览",
-      "mock": true,
-      "res": {
-        "code": 200,
-        "msg": "Hi, this is mock server.",
-        "result": {
-          "xAxisData": ["短信下发黑名单", "违规短信接口调用", "异常邮箱注册"],
-          "seriesData": [375, 482, 297]
-        }
-      }
-    },
-    {
-      "url": "/api/app/productCompareData.jhtml",
-      "desc": "数据概览",
-      "mock": true,
-      "res": {
-        "code": 200,
-        "msg": "Hi, this is mock server.",
-        "result": {
-          "legend": ["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"],
-          "xAxisData": ["周一","周二","周三","周四","周五","周六","周日"],
-          "seriesData": [{
-                "name":"邮件营销",
-                "data":[120, 132, 101, 134, 90, 230, 210]
-            },
-            {
-                "name":"联盟广告",
-                "data":[220, 182, 191, 234, 290, 330, 310]
-            },
-            {
-                "name":"视频广告",
-                "data":[150, 232, 201, 154, 190, 330, 410]
-            },
-            {
-                "name":"直接访问",
-                "data":[320, 332, 301, 334, 390, 330, 320]
-            },
-            {
-                "name":"搜索引擎",
-                "data":[820, 932, 901, 934, 1290, 1330, 1320]
-            }]
-        }
-      }
-    }
-  ],
-  "default": [
-    {
-      "url": "/",
-      "desc": "Index",
-      "mock": true,
-      "res": {
-        "code": 200,
-        "msg": "Hi, this is mock server.",
-        "result": ""
-      }
-    }
-  ]
+    ]
 }
-
-
-
-
-
-
-
-
